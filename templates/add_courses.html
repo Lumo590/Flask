@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: rgb(16, 152, 236);
+        }
+
+        div{
+            margin: 10px;
+        }
+
+        form{
+            width: 350px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgb(237, 237, 237);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        label{
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input{
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button{
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[ type="submit"]{
+            background: rgb(69, 219, 69);
+            color: rgb(255, 255, 255);
+        }
+
+        button[type="button"]{
+            
+            background: red;
+            color: rgb(255, 232, 232);
+        }
+        .btn-end{
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+         
+        }
+       
+            a{
+                text-decoration: none;
+            }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="">
+            <h1> Create new course</h1>
+            <div>
+                <label>Enter Title</label>
+                <input type="text" name="title">
+            </div>
+
+            <div>
+                <label>Enter Description</label>
+                <input type="text" name="title">
+            </div>
+
+            <div>
+                <label>Enter Price</label>
+                <input type="text" name="title">
+            </div>
+
+            <div>
+                <label>Enter Proccessor</label>
+                <input type="text" name="title">
+            </div>
+
+            <div class=" btn btn-end">
+                <a href="/courses">
+                    <button class="bnt btn-end" type="button">Cancel</button>
+                </a>
+                <button type="submit">Save</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
