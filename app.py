@@ -26,13 +26,51 @@ def create():
     title=request.form["title"]
     description=request.form["description"]
     price=request.form["price"]
-    proccessor=request.form["proccessor"]
+    professor=request.form["professor"]
     
-    query="INSERT into 'courses' (title,description ,price,proccessor) VALUE (%s,%s,%s)"
-    cursor.execute(query,(title,description ,price,proccessor))
+    query="INSERT INTO courses (title,description,price,professor) VALUES (%s,%s,%s,%s)"
+    cursor.execute(query,(title,description ,price,professor))
     conn.commit()
-    return redirect("courses")
-     
+    return redirect("/courses")
+
+@app.route("/delete/<int:id>",methods=["POST"])
+def delete(id):
+    conn=courses_db()
+    cursor=conn.cursor()
+    
+    query="DELETE FROM courses WHERE id=%s"
+    cursor.execute(query,(id,))
+    conn.commit()
+    return redirect("/courses")
+
+@app.route('/edit/<int:id>')
+def edit(id):
+    conn = courses_db()
+    cursor = conn.cursor()
+    query = "SELECT * FROM courses WHERE id =%s"
+    cursor.execute(query,(id,))
+    courses = cursor.fetchone()
+    return render_template("edit.html", courses = courses)
+
+@app.route('/update/<int:id>', methods=["POST"])
+def update(id):
+    conn = courses_db()
+    cursor = conn.cursor()
+    title = request.form['title']
+    description = request.form['description']
+    price = request.form['price']
+    professor = request.form['professor']
+    query = """
+        UPDATE courses SET 
+        title=%s ,
+        description=%s,  
+        price = %s,
+        professor=%s
+        WHERE id = %s
+        """
+    cursor.execute(query,(title,description, price,professor, id))
+    conn.commit()
+    return redirect('/courses') 
      
 
 if __name__ == "__main__":

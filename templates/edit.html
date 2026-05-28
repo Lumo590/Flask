@@ -71,26 +71,26 @@
 </head>
 <body>
     <div class="container">
-        <form method="post" action="/create">
-            <h1> Create new course</h1>
+        <form method="post" action="/update/{{courses.id}}">
+            <h1> Edit course</h1>
             <div>
                 <label>Enter Title</label>
-                <input    type="text" name="title">
+                <input  value="{{courses.title}}" type="text" name="title">
             </div>
 
             <div>
                 <label>Enter Description</label>
-                <input type="text" name="description">
+                <input  tvalue="{{courses.description}} type="text" name="description">
             </div>
 
             <div>
                 <label>Enter Price</label>
-                <input type="text" name="price">
+                <input value="{{courses.price}} type="text" name="price">
             </div>
 
             <div>
                 <label>Enter professor</label>
-                <input type="text" name="professor">
+                <input value="{{courses.professor}} type="text" name="professor">
             </div>
 
             <div class=" btn btn-end">
